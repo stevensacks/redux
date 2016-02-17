@@ -60,9 +60,11 @@ In general, remember that reducers are just functions - you can organize them an
 
 ## Code Structure
 
-### How should I group my actions and reducers in my project?
+### How should I group my action creators and reducers in my project?
 
 ### Where should my selectors go?
+
+### How should I split my logic between reducers and action creators?
 
 
 ## Performance
