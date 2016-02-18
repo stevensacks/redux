@@ -1,6 +1,5 @@
 # Redux FAQ
 
-
 ## General
 
 ### Can Redux only be used with React?  
@@ -95,9 +94,25 @@ It is highly recommended that you only put plain serializable objects, arrays, a
 
 ## Actions
 
-### Why should my action types be constants?
+### Why should "type" be a string, or at least serializable? Why should my action types be constants?
 
-### Why should "type" be a string, or at least serializable?
+As with state, having actions be serializable enables several of Redux's defining features, such as time travel debugging, and recording and replaying actions.  Using something like a Symbol for the "type" value would break that.  Strings are serializable and easily self-descriptive, and so are a better choice.
+
+Encapsulating and centralizing commonly used pieces of code is a key concept in programming.  While it is certainly possible to manually create action objects everywhere, and write each "type" value by hand, defining reusable constants makes maintaining code easier.
+
+
+#### Further information:
+**Documentation**:
+- [Reducing Boilerplate](http://rackt.github.io/redux/docs/recipes/ReducingBoilerplate.html#actions)
+
+**Discussion**:
+- [#384 - Recommend that Action constants be named in the past tense](https://github.com/reactjs/redux/issues/384)
+- [#628 - Solution for simple action creation with less boilerplate](https://github.com/reactjs/redux/issues/628)
+- [#1024 - Proposal: Declarative reducers](https://github.com/reactjs/redux/issues/1024)
+- [#1167 - Reducer without switch](https://github.com/reactjs/redux/issues/1167)
+- [SO - Why do you need 'Actions' as data in Redux?](http://stackoverflow.com/q/34759047/62937)
+- [SO - What is the point of the constants in Redux?](http://stackoverflow.com/q/34965856/62937)
+
 
 ### Should I have a 1-1 mapping between reducers and actions?
 
