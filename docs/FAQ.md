@@ -1,6 +1,18 @@
 # Redux FAQ
 
 
+## General
+
+### Can Redux only be used with React?  
+
+Redux can be used as a data store for any UI layer.  The most common usage is with React, but there are bindings available for Angular, Vue, Mithril, and more.  Redux simply provides a subscription mechanism, which can be used by any other code.
+
+
+### Do I need to have a particular build tool to use Redux?
+
+Redux is written in ES6 and built for production with Webpack and Babel.  However, it should be usable in any Javascript build process.  There is also a UMD build that allows usage without any build process at all.
+
+
 ## Reducers
 
 ### How do I share state between two reducers? Do I have to use `combineReducers`?
