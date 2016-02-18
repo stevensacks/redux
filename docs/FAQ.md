@@ -53,6 +53,18 @@ No.  You are welcome to use any approach you'd like to respond to an action in a
 
 ### Do I have to put all my state into Redux? Should I ever use React's setState?
 
+There is no "right" answer for this.  Some users prefer to keep every single piece of data in Redux, to maintain a fully serializable and controlled version of their application at all times.  Others prefer to keep non-critical or UI state, such as "is this dropdown currently open", inside a component's internal state.  Find a balance that works for you, and go with it.
+
+There are a number of community packages that implement various approaches for storing per-component state in a Redux store instead, such as [redux-ui](https://github.com/tonyhb/redux-ui), [redux-component](https://github.com/tomchentw/redux-component), [redux-react-local](https://github.com/threepointone/redux-react-local), and more.
+
+#### Further information
+**Discussions**:
+- [#159 - Investigate using Redux for pseudo-local component state](https://github.com/reactjs/redux/issues/159)
+- [#1098 - Using Redux in reusable React component](https://github.com/reactjs/redux/issues/1098)
+- [#1287 - How to choose between Redux's store and React's state?](https://github.com/reactjs/redux/issues/1287)
+- [#1385 - What are the disadvantages of storing all your state in a single immutable atom?](https://github.com/reactjs/redux/issues/1385)
+
+
 ### Can I put functions, promises, or other non-serializable items in my store state?
 
 ### How do I organize nested/duplicate data in my state?
