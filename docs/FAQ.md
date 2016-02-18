@@ -67,6 +67,16 @@ There are a number of community packages that implement various approaches for s
 
 ### Can I put functions, promises, or other non-serializable items in my store state?
 
+It is highly recommended that you only put plain serializable objects, arrays, and primitives into your store.  It's _technically_ possible to insert non-serializable items into the store, but doing so can break the ability to persist and rehydrate the contents of a store.
+
+#### Further information
+**Discussions**:
+- [#1248 - Is it ok and possible to store a react component in a reducer?](https://github.com/reactjs/redux/issues/1248)
+- [#1279 - Have any suggestions for where to put a Map Component in Flux?](https://github.com/reactjs/redux/issues/1279)
+- [#1390 - Component Loading](https://github.com/reactjs/redux/issues/1390)
+- [#1407 - Just sharing a great base class](https://github.com/reactjs/redux/issues/1407)
+
+
 ### How do I organize nested/duplicate data in my state?
 
 
