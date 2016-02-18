@@ -10,7 +10,11 @@ Redux can be used as a data store for any UI layer.  The most common usage is wi
 
 ### Do I need to have a particular build tool to use Redux?
 
-Redux is written in ES6 and built for production with Webpack and Babel.  However, it should be usable in any Javascript build process.  There is also a UMD build that allows usage without any build process at all.
+Redux is written in ES6 and built for production with Webpack and Babel.  However, it should be usable in any Javascript build process.  There is also a UMD build that allows usage without any build process at all.  The [counter-vanilla](https://github.com/reactjs/redux/tree/master/examples/counter-vanilla) example demonstrates basic ES5 usage with Redux included in a script tag.  As the pull request that added this said:
+
+> The new Counter Vanilla example is aimed to dispel the myth that Redux requires Webpack, React, hot reloading, sagas, action creators, constants, Babel, npm, CSS modules, decorators, fluent Latin, an Egghead subscription, a PhD, or an Exceeds Expectations O.W.L. level.
+
+>Nope, it's just HTML, some artisanal `<script>` tags, and plain old DOM manipulation. Enjoy!
 
 
 ## Reducers
