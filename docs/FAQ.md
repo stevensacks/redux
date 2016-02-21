@@ -38,6 +38,8 @@ In general, remember that reducers are just functions - you can organize them an
 **Discussions**:
 - [#1400 - Is passing top-level state object to branch reducer an anti-pattern?](https://github.com/reactjs/redux/issues/1400)
 
+- http://stackoverflow.com/questions/34333979/accessing-other-parts-of-the-state-when-using-combined-reducers
+
 
 ### Do I have to use a switch statement to handle actions?
 
@@ -116,6 +118,8 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 
 ### Should I have a 1-1 mapping between reducers and actions?
 
+- http://stackoverflow.com/questions/35406707/do-events-and-actions-have-a-11-relationship-in-redux
+
 ### How can I represent "side effects" such as AJAX calls?
 
 ### Should I dispatch multiple actions in a row from one action creator?
@@ -145,6 +149,9 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 ## React-Redux
 
 ### Why isn't my component re-rendering, or my mapStateToProps running?
+
+
+- https://github.com/reactjs/react-redux/issues/291
 
 ### Why is my component re-rendering too often?
 
