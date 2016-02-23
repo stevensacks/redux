@@ -84,6 +84,21 @@ It is highly recommended that you only put plain serializable objects, arrays, a
 
 ### How do I organize nested/duplicate data in my state?
 
+Data with IDs, nesting, or relationships should generally be stored in a "normalized" fashion - each object should be stored once, keyed by ID, and other objects that reference it should only store the ID rather than a copy of the entire object.  It may help to think of parts of your store as a database, with individual "tables" per item type.  Libraries such as [normalizr](https://github.com/gaearon/normalizr) and [redux-orm](https://github.com/tommikaikkonen/redux-orm) can provide help and abstractions in managing normalized data.
+
+
+#### Further information
+**Documentation**:
+- [Async Actions](advanced/AsyncActions.md)
+- [Real World example](introduction/Examples.html#real-world)
+
+
+**Discussions**:
+- [#316 - How to create nested reducers?](https://github.com/reactjs/redux/issues/316)
+- [#946 - Best way to update related state fields with split reducers?](https://github.com/reactjs/redux/issues/946)
+- [#994 - How to cut the boilerplate when updating nested entities?](https://github.com/reactjs/redux/issues/994)
+
+
 
 ## Store Setup
 
