@@ -36,9 +36,10 @@ In general, remember that reducers are just functions - you can organize them an
 - [Structuring Reducers](recipes/StructuringReducers.md)
 
 **Discussions**:
+- [#601 - A concern on combineReducers, when an action is related to multiple reducers](https://github.com/reactjs/redux/issues/601)
 - [#1400 - Is passing top-level state object to branch reducer an anti-pattern?](https://github.com/reactjs/redux/issues/1400)
-
-- http://stackoverflow.com/questions/34333979/accessing-other-parts-of-the-state-when-using-combined-reducers
+- [SO - Accessing other parts of the state when using combined reducers?](http://stackoverflow.com/questions/34333979/accessing-other-parts-of-the-state-when-using-combined-reducers)
+- https://invalidpatent.wordpress.com/2016/02/18/sharing-state-between-redux-reducers/
 
 
 ### Do I have to use a switch statement to handle actions?
@@ -113,7 +114,7 @@ Data with IDs, nesting, or relationships should generally be stored in a "normal
 
 ### Why should "type" be a string, or at least serializable? Why should my action types be constants?
 
-As with state, having actions be serializable enables several of Redux's defining features, such as time travel debugging, and recording and replaying actions.  Using something like a Symbol for the "type" value would break that.  Strings are serializable and easily self-descriptive, and so are a better choice.
+As with state, having actions be serializable enables several of Redux's defining features, such as time travel debugging, and recording and replaying actions.  Using something like a Symbol for the "type" value would break that.  Strings are serializable and easily self-descriptive, and so are a better choice.  Note that it IS okay to use Symbols, Promises, or other non-serializable values in an action if the action is intended for use by middleware - actions just need to be serializable by the time they actually reach the store and are passed to reducers.
 
 Encapsulating and centralizing commonly used pieces of code is a key concept in programming.  While it is certainly possible to manually create action objects everywhere, and write each "type" value by hand, defining reusable constants makes maintaining code easier.
 
