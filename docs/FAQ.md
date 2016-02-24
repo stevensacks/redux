@@ -96,6 +96,7 @@ Data with IDs, nesting, or relationships should generally be stored in a "normal
 
 **Discussions**:
 - [#316 - How to create nested reducers?](https://github.com/reactjs/redux/issues/316)
+- [#815 - Working with Data Structures](https://github.com/reactjs/redux/issues/815)
 - [#946 - Best way to update related state fields with split reducers?](https://github.com/reactjs/redux/issues/946)
 - [#994 - How to cut the boilerplate when updating nested entities?](https://github.com/reactjs/redux/issues/994)
 
@@ -166,6 +167,8 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 ### Where should my selectors go?
 
 ### How should I split my logic between reducers and action creators?
+
+- https://github.com/reactjs/redux/issues/1171 
 
 
 ## Performance
