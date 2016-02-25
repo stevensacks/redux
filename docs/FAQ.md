@@ -184,18 +184,28 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 - [SO - What is the point of the constants in Redux?](http://stackoverflow.com/q/34965856/62937)
 
 
-### Should I have a 1-1 mapping between reducers and actions?
+### Is there always a 1-1 mapping between reducers and actions?
+
 
 - http://stackoverflow.com/questions/35406707/do-events-and-actions-have-a-11-relationship-in-redux
+- https://github.com/reduxible/reduxible/issues/8
 
 ### How can I represent "side effects" such as AJAX calls?
 
+- http://stackoverflow.com/questions/32982237/where-should-i-put-synchronous-side-effects-linked-to-actions-in-redux/33036344
+- http://stackoverflow.com/questions/32925837/how-to-handle-complex-side-effects-in-redux/33036594
+- http://stackoverflow.com/questions/33011729/how-to-unit-test-async-redux-actions-to-mock-ajax-response/33053465
+
 ### Should I dispatch multiple actions in a row from one action creator?
+- http://stackoverflow.com/questions/33637740/should-i-use-one-or-several-action-types-to-represent-this-async-action/33816695
+- http://stackoverflow.com/questions/35406707/do-events-and-actions-have-a-11-relationship-in-redux/35410524
 
 
 ## Code Structure
 
 ### How should I group my action creators and reducers in my project?
+
+- http://stackoverflow.com/questions/32634320/how-to-structure-redux-components-containers/32921576
 
 ### Where should my selectors go?
 
@@ -219,7 +229,6 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 ## React-Redux
 
 ### Why isn't my component re-rendering, or my mapStateToProps running?
-
 
 - https://github.com/reactjs/react-redux/issues/291
 
