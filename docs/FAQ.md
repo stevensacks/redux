@@ -39,7 +39,7 @@ In general, remember that reducers are just functions - you can organize them an
 - [#601 - A concern on combineReducers, when an action is related to multiple reducers](https://github.com/reactjs/redux/issues/601)
 - [#1400 - Is passing top-level state object to branch reducer an anti-pattern?](https://github.com/reactjs/redux/issues/1400)
 - [SO - Accessing other parts of the state when using combined reducers?](http://stackoverflow.com/questions/34333979/accessing-other-parts-of-the-state-when-using-combined-reducers)
-- https://invalidpatent.wordpress.com/2016/02/18/sharing-state-between-redux-reducers/
+- [Sharing State Between Redux Reducers](https://invalidpatent.wordpress.com/2016/02/18/sharing-state-between-redux-reducers/)
 
 
 ### Do I have to use a switch statement to handle actions?
@@ -124,7 +124,22 @@ Similarly, while you _can_ reference your store instance by importing it directl
 - [SO - Redux multiple stores, why not?](http://stackoverflow.com/questions/33619775/redux-multiple-stores-why-not)
 
 
-### Is it OK to have more than one middleware chain in my store enhancer?
+### Is it OK to have more than one middleware chain in my store enhancer?  What is the difference between "next" and "dispatch" in a middleware function?
+
+Redux middleware act like a linked list.  Each middleware function can either call `next(action)` to pass an action along to the next middleware in line, call `dispatch(action)` to restart the processing at the beginning of the list, or do nothing at all to stop the action from being processed further.  
+
+This chain of middleware is defined by the arguments passed to the `applyMiddleware` function used when creating a store.  Defining multiple chains will not work correctly, as they would have distinctly different `dispatch` references and the different chains would effectively be disconnected.
+
+#### Further information
+**Documentation**
+- [Middleware](advanced/Middleware.md)
+- [applyMiddleware](api/applyMiddleware.md)
+
+**Discussions**
+- [#1051 - Shortcomings of the current applyMiddleware and composing createStore](https://github.com/reactjs/redux/issues/1051)
+- [Understanding Redux Middleware](https://medium.com/@meagle/understanding-87566abcfb7a)
+- [Exploring Redux Middleware](http://blog.krawaller.se/posts/exploring-redux-middleware/)
+
 
 ### How do I subscribe to only a portion of the state?
 
