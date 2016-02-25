@@ -32,8 +32,8 @@ In general, remember that reducers are just functions - you can organize them an
 
 #### Further information:
 **Documentation**:
-- [`combineReducers`](api/combineReducers.md)
-- [Structuring Reducers](recipes/StructuringReducers.md)
+- [API: combineReducers](api/combineReducers.md)
+- [Recipes: Structuring Reducers](recipes/StructuringReducers.md)
 
 **Discussions**:
 - [#601 - A concern on combineReducers, when an action is related to multiple reducers](https://github.com/reactjs/redux/issues/601)
@@ -48,7 +48,7 @@ No.  You are welcome to use any approach you'd like to respond to an action in a
 
 #### Further information:
 **Documentation**:
-- [Reducing Boilerplate](recipes/ReducingBoilerplate.md)
+- [Recipes: Reducing Boilerplate](recipes/ReducingBoilerplate.md)
 
 **Discussions**:
 - [#883 - take away the huge switch block](https://github.com/reactjs/redux/issues/883)
@@ -90,8 +90,8 @@ Data with IDs, nesting, or relationships should generally be stored in a "normal
 
 #### Further information
 **Documentation**:
-- [Async Actions](advanced/AsyncActions.md)
-- [Real World example](introduction/Examples.html#real-world)
+- [Advanced: Async Actions](advanced/AsyncActions.md)
+- [Examples: Real World example](introduction/Examples.html#real-world)
 
 
 **Discussions**:
@@ -116,7 +116,7 @@ Similarly, while you _can_ reference your store instance by importing it directl
 
 #### Further information
 **Documentation**:
-- [Store](api/Store.md)
+- [API: Store](api/Store.md)
 
 
 **Discussions**:
@@ -132,8 +132,8 @@ This chain of middleware is defined by the arguments passed to the `applyMiddlew
 
 #### Further information
 **Documentation**
-- [Middleware](advanced/Middleware.md)
-- [applyMiddleware](api/applyMiddleware.md)
+- [Advanced: Middleware](advanced/Middleware.md)
+- [API: applyMiddleware](api/applyMiddleware.md)
 
 **Discussions**
 - [#1051 - Shortcomings of the current applyMiddleware and composing createStore](https://github.com/reactjs/redux/issues/1051)
@@ -141,7 +141,25 @@ This chain of middleware is defined by the arguments passed to the `applyMiddlew
 - [Exploring Redux Middleware](http://blog.krawaller.se/posts/exploring-redux-middleware/)
 
 
-### How do I subscribe to only a portion of the state?
+### How do I subscribe to only a portion of the state?  Can I get the dispatched action as part of the subscription?
+
+Redux provides a single `store.subscribe` method for notifying listeners that the store has updated.  Listener callbacks do not receive the current state as an argument - it is simply an indication that _something_ has changed.  The subscriber logic can then call `getState()` to get the current state value.
+
+This API is intended as a low-level primitive with no dependencies or complications, and can be used to build higher-level subscription logic.  UI bindings such as React-Redux can create a subscription for each connected component.  It is also possible to write functions that can intelligently compare the old state vs the new state, and execute additional logic if certain pieces have changed.  Examples include [redux-watch](https://github.com/jprichardson/redux-watch) and [redux-subscribe](https://github.com/ashaffer/redux-subscribe), which offer different approaches to specifying subscriptions and handling changes.
+
+The new state is not passed to the listeners in order to remove special-cases and simplify implementing addons such as the Redux DevTools.  In addition, subscribers are intended to react to the state value itself, not the action.  Middleware can be used if dealing with the action is needed.
+
+#### Further information
+**Documentation**
+- [Basics: Store](basics/Store.md)
+- [API: Store](api/Store.md)
+
+**Discussions**
+- [#303 - subscribe API with state as an argument](https://github.com/reactjs/redux/issues/303)
+- [#580 - Is it possible to get action and state in store.subscribe?](https://github.com/reactjs/redux/issues/580)
+- [#922 - Proposal: add subscribe to middleware API](https://github.com/reactjs/redux/issues/922)
+- [#1057 - subscribe listener can get action param?](https://github.com/reactjs/redux/issues/1057)
+- [#1300 - Redux is great but major feature is missing](https://github.com/reactjs/redux/issues/1300)
 
 
 ## Actions
