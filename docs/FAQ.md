@@ -241,7 +241,7 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 
 ### Are there any larger, "real" Redux projects?
 
-### How to do Authentication with JWT and Redux?
+### How can I implement Authentication In Redux?
 
 Authentication is essential to any real application. When going about authentication you must keep in mind that nothing changes with how you should organize your application and you should implement authentication in the same way you would any other feature. It is straight forward. 
 
