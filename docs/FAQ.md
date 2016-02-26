@@ -188,10 +188,12 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 
 
 - http://stackoverflow.com/questions/35406707/do-events-and-actions-have-a-11-relationship-in-redux
+- http://stackoverflow.com/questions/35493352/can-i-dispatch-multiple-actions-without-redux-thunk-middleware/35642783
 - https://github.com/reduxible/reduxible/issues/8
 
 ### How can I represent "side effects" such as AJAX calls?
 
+- http://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559
 - http://stackoverflow.com/questions/32982237/where-should-i-put-synchronous-side-effects-linked-to-actions-in-redux/33036344
 - http://stackoverflow.com/questions/32925837/how-to-handle-complex-side-effects-in-redux/33036594
 - http://stackoverflow.com/questions/33011729/how-to-unit-test-async-redux-actions-to-mock-ajax-response/33053465
