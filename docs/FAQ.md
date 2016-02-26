@@ -255,6 +255,6 @@ Authentication is essential to any real application. When going about authentica
 
 A few helpful links to repos or blogposts that demonstrate Authentication in Redux:
 
-+ https://auth0.com/blog/2016/01/04/secure-your-react-and-redux-app-with-jwt-authentication/
-+ https://github.com/joshgeller/react-redux-jwt-auth-example
-+ https://github.com/lynndylanhurley/redux-auth
++ [Authentication with JWT by Auth0](https://auth0.com/blog/2016/01/04/secure-your-react-and-redux-app-with-jwt-authentication/)
++ [react-redux-jwt-auth-example](https://github.com/joshgeller/react-redux-jwt-auth-example)
++ [redux-auth](https://github.com/lynndylanhurley/redux-auth)
