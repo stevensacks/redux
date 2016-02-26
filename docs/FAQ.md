@@ -240,3 +240,21 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 ## Community
 
 ### Are there any larger, "real" Redux projects?
+
+### How can I implement Authentication In Redux?
+
+Authentication is essential to any real application. When going about authentication you must keep in mind that nothing changes with how you should organize your application and you should implement authentication in the same way you would any other feature. It is straight forward. 
+
+1. Create action constants for LoginSuccess, LoginFailure, etc.
+
+2. Create actionCreators that take in a type, credentials, a flag that signifies if authentication is true or false, a token, or errorMessage as a payload.
+
+3. Create an async action creator with redux-thunk middleware or any middleware you see fit to fire a network request to an api that returns a token if the credentials are valid and proceeds to save in local storage or a response to the user if it is a failure which is handled by the appropriate actionCreators that you made in step 2.
+
+4. Create a reducer that can return the next state for each possible authentication case (LoginSuccess, LogoutFailure).
+
+A few helpful links to repos or blogposts that demonstrate Authentication in Redux:
+
++ [Authentication with JWT by Auth0](https://auth0.com/blog/2016/01/04/secure-your-react-and-redux-app-with-jwt-authentication/)
++ [react-redux-jwt-auth-example](https://github.com/joshgeller/react-redux-jwt-auth-example)
++ [redux-auth](https://github.com/lynndylanhurley/redux-auth)
