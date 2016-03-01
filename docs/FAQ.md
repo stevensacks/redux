@@ -69,6 +69,7 @@ There are a number of community packages that implement various approaches for s
 - [#1098 - Using Redux in reusable React component](https://github.com/reactjs/redux/issues/1098)
 - [#1287 - How to choose between Redux's store and React's state?](https://github.com/reactjs/redux/issues/1287)
 - [#1385 - What are the disadvantages of storing all your state in a single immutable atom?](https://github.com/reactjs/redux/issues/1385)
+- [SO - Why is state all in one place, even state that isn't global?](http://stackoverflow.com/questions/35664594/redux-why-is-state-all-in-one-place-even-state-that-isnt-global)
 
 
 ### Can I put functions, promises, or other non-serializable items in my store state?
@@ -99,6 +100,7 @@ Data with IDs, nesting, or relationships should generally be stored in a "normal
 - [#815 - Working with Data Structures](https://github.com/reactjs/redux/issues/815)
 - [#946 - Best way to update related state fields with split reducers?](https://github.com/reactjs/redux/issues/946)
 - [#994 - How to cut the boilerplate when updating nested entities?](https://github.com/reactjs/redux/issues/994)
+- [#1255 - Normalizr usage with nested objects in React/Redux](https://github.com/reactjs/redux/issues/1255)
 
 
 
@@ -122,6 +124,7 @@ Similarly, while you _can_ reference your store instance by importing it directl
 **Discussions**:
 - [#1346 - Is it bad practice to just have a 'stores' directory?](https://github.com/reactjs/redux/issues/1436)
 - [SO - Redux multiple stores, why not?](http://stackoverflow.com/questions/33619775/redux-multiple-stores-why-not)
+- [SO - Accessing Redux state in an action creator](http://stackoverflow.com/questions/35667249/accessing-redux-state-in-an-action-creator)
 
 
 ### Is it OK to have more than one middleware chain in my store enhancer?  What is the difference between "next" and "dispatch" in a middleware function?
@@ -197,6 +200,7 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 - http://stackoverflow.com/questions/32982237/where-should-i-put-synchronous-side-effects-linked-to-actions-in-redux/33036344
 - http://stackoverflow.com/questions/32925837/how-to-handle-complex-side-effects-in-redux/33036594
 - http://stackoverflow.com/questions/33011729/how-to-unit-test-async-redux-actions-to-mock-ajax-response/33053465
+- http://stackoverflow.com/questions/35262692/how-to-fire-ajax-calls-in-response-to-the-state-changes-with-redux/35675447
 
 ### Should I dispatch multiple actions in a row from one action creator?
 - http://stackoverflow.com/questions/33637740/should-i-use-one-or-several-action-types-to-represent-this-async-action/33816695
@@ -233,6 +237,8 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 ### Why isn't my component re-rendering, or my mapStateToProps running?
 
 - https://github.com/reactjs/react-redux/issues/291
+- http://stackoverflow.com/questions/35592078/cleaner-shorter-way-to-update-nested-state-in-redux
+- https://gist.github.com/amcdnl/7d93c0c67a9a44fe5761#gistcomment-1706579
 
 ### Why is my component re-rendering too often?
 
@@ -255,8 +261,10 @@ Authentication is essential to any real application. When going about authentica
 
 4. Create a reducer that can return the next state for each possible authentication case (LoginSuccess, LogoutFailure).
 
-A few helpful links to repos or blogposts that demonstrate Authentication in Redux:
+#### Further information
 
+**Discussions**:
 + [Authentication with JWT by Auth0](https://auth0.com/blog/2016/01/04/secure-your-react-and-redux-app-with-jwt-authentication/)
++ [Tips to Handle Authentication in Redux](https://medium.com/@MattiaManzati/tips-to-handle-authentication-in-redux-2-introducing-redux-saga-130d6872fbe7)
 + [react-redux-jwt-auth-example](https://github.com/joshgeller/react-redux-jwt-auth-example)
 + [redux-auth](https://github.com/lynndylanhurley/redux-auth)
