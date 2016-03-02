@@ -70,6 +70,7 @@ There are a number of community packages that implement various approaches for s
 - [#1287 - How to choose between Redux's store and React's state?](https://github.com/reactjs/redux/issues/1287)
 - [#1385 - What are the disadvantages of storing all your state in a single immutable atom?](https://github.com/reactjs/redux/issues/1385)
 - [SO - Why is state all in one place, even state that isn't global?](http://stackoverflow.com/questions/35664594/redux-why-is-state-all-in-one-place-even-state-that-isnt-global)
+- [SO - Should all component state be kept in Redux store?](http://stackoverflow.com/questions/35328056/react-redux-should-all-component-states-be-kept-in-redux-store)
 
 
 ### Can I put functions, promises, or other non-serializable items in my store state?
@@ -201,6 +202,7 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 - http://stackoverflow.com/questions/32925837/how-to-handle-complex-side-effects-in-redux/33036594
 - http://stackoverflow.com/questions/33011729/how-to-unit-test-async-redux-actions-to-mock-ajax-response/33053465
 - http://stackoverflow.com/questions/35262692/how-to-fire-ajax-calls-in-response-to-the-state-changes-with-redux/35675447
+- https://www.reddit.com/r/reactjs/comments/469iyc/help_performing_async_api_calls_with_reduxpromise/
 
 ### Should I dispatch multiple actions in a row from one action creator?
 - http://stackoverflow.com/questions/33637740/should-i-use-one-or-several-action-types-to-represent-this-async-action/33816695
@@ -209,11 +211,10 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 
 ## Code Structure
 
-### How should I group my action creators and reducers in my project?
+### What should my file structure look like? How should I group my action creators and reducers in my project? Where should my selectors go?
 
+- http://jaysoo.ca/2016/02/28/organizing-redux-application/
 - http://stackoverflow.com/questions/32634320/how-to-structure-redux-components-containers/32921576
-
-### Where should my selectors go?
 
 ### How should I split my logic between reducers and action creators?
 
