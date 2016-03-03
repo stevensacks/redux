@@ -245,6 +245,24 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 
 ### How can I speed up my mapStateToProps?
 
+### Why don't I have `this.props.dispatch` available in my connected component?
+
+The `connect` function takes two primary arguments, both optional.  The first, `mapStateToProps`, is a function you provide to pull data from the store when it changes, and pass those values as props to your component.  The second, `mapDispatchToProps`, is a function you provide to make use of the store's `dispatch` function, usually by creating pre-bound versions of action creators that will automatically dispatch their actions as soon as they are called.
+
+If you do not provide your own `mapDispatchToProps` function when calling `connect`, React-Redux will provide a default version, which simply returns the `dispatch` function as a prop.  That means that if you _do_ provide your own function, `dispatch` is _not_ automatically provided.  If you still want it available as a prop, you need to explicitly return it yourself in your `mapDispatchToProps` implementation.
+
+
+#### Further information
+**Documentation**
+- [React-Redux API: connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options)
+
+
+**Discussion**:
+- [React-Redux #89 - can i wrap multi actionCreators into one props with name?](https://github.com/reactjs/react-redux/issues/89)
+- [React-Redux #145 - consider always passing down dispatch regardless of what mapDispatchToProps does](https://github.com/reactjs/react-redux/issues/145)
+- [React-Redux #255 - this.props.dispatch is undefined if using mapDispatchToProps](https://github.com/reactjs/react-redux/issues/255)
+- [SO - http://stackoverflow.com/questions/34458261/how-to-get-simple-dispatch-from-this-props-using-connect-w-redux/34458710](How to get simple dispatch from this.props using connect w/ Redux?)
+
 
 ## Community
 
