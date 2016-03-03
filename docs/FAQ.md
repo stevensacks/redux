@@ -237,9 +237,28 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 
 ### Why isn't my component re-rendering, or my mapStateToProps running?
 
-- https://github.com/reactjs/react-redux/issues/291
-- http://stackoverflow.com/questions/35592078/cleaner-shorter-way-to-update-nested-state-in-redux
-- https://gist.github.com/amcdnl/7d93c0c67a9a44fe5761#gistcomment-1706579
+Accidentally mutating or modifying your state directly is by far the most common reason why components do not re-render after an action has been dispatched.  Redux expects that your reducers will update their state "immutably", which effectively means always making copies of your data, and applying your changes to the copies.  If you return the same object from a reducer, Redux assumes that nothing has been changed, even if you made changes to its contents.  Similarly, React-Redux tries to improve performance by doing shallow equality reference checks on incoming props in `shouldComponentUpdate`, and if all references are the same, returns false to skip actually updating your original component.
+
+It's important to remember that whenever you update a nested value, you must also return new copies of anything above it in your state tree.  If you have `state.a.b.c.d`, and you want to make an update to `d`, you would also need to return new copies of `c`, `b`, `a`, and `state`.  This [state tree mutation diagram](http://arqex.com/wp-content/uploads/2015/02/trees.png) demonstrates how a change deep in a tree requires changes all the way up.
+
+
+Note that "updating data immutably" does _not_ mean that you must use the Immutable.js library, although that is certainly an option.  You can do immutable updates to plain JS objects and arrays using several different approaches: 
+- Copying objects using functions like Object.assign() / \_.extend(), and array functions such as slice() and concat()
+- The array spread operator in ES6, and the similar object spread operator that is proposed but not yet approved
+- Utility libraries that wrap immutable update logic into simpler functions
+
+
+#### Further information
+**Documentation**:
+- [Troubleshooting](Troubleshooting.md)
+- [React-Redux: Troubleshooting](https://github.com/reactjs/react-redux/blob/master/docs/troubleshooting.md)
+- [Recipes: Using the Object Spread Operator](recipes/UsingObjectSpreadOperator.md)
+
+**Discussions**:
+- [React-Redux #291 - Should mapStateToProps be called every time an action is dispatched?](https://github.com/reactjs/react-redux/issues/291)
+- [SO - Cleaner/shorter way to update nested state in Redux?](http://stackoverflow.com/questions/35592078/cleaner-shorter-way-to-update-nested-state-in-redux)
+- [Gist - state mutations](https://gist.github.com/amcdnl/7d93c0c67a9a44fe5761#gistcomment-1706579)
+- [Pros and Cons of Using Immutability with React](http://reactkungfu.com/2015/08/pros-and-cons-of-using-immutability-with-react-js/)
 
 ### Why is my component re-rendering too often?
 
