@@ -276,7 +276,7 @@ If you do not provide your own `mapDispatchToProps` function when calling `conne
 - [React-Redux API: connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options)
 
 
-**Discussion**:
+**Discussions**:
 - [React-Redux #89 - can i wrap multi actionCreators into one props with name?](https://github.com/reactjs/react-redux/issues/89)
 - [React-Redux #145 - consider always passing down dispatch regardless of what mapDispatchToProps does](https://github.com/reactjs/react-redux/issues/145)
 - [React-Redux #255 - this.props.dispatch is undefined if using mapDispatchToProps](https://github.com/reactjs/react-redux/issues/255)
@@ -287,9 +287,12 @@ If you do not provide your own `mapDispatchToProps` function when calling `conne
 
 ### Are there any larger, "real" Redux projects?
 
-### How can I implement Authentication In Redux?
 
-Authentication is essential to any real application. When going about authentication you must keep in mind that nothing changes with how you should organize your application and you should implement authentication in the same way you would any other feature. It is straight forward. 
+## Miscellaneous
+
+### How can I implement authentication in Redux?
+
+Authentication is essential to any real application. When going about authentication you must keep in mind that nothing changes with how you should organize your application and you should implement authentication in the same way you would any other feature.  It is straightforward:
 
 1. Create action constants for LoginSuccess, LoginFailure, etc.
 
@@ -302,7 +305,7 @@ Authentication is essential to any real application. When going about authentica
 #### Further information
 
 **Discussions**:
-+ [Authentication with JWT by Auth0](https://auth0.com/blog/2016/01/04/secure-your-react-and-redux-app-with-jwt-authentication/)
-+ [Tips to Handle Authentication in Redux](https://medium.com/@MattiaManzati/tips-to-handle-authentication-in-redux-2-introducing-redux-saga-130d6872fbe7)
-+ [react-redux-jwt-auth-example](https://github.com/joshgeller/react-redux-jwt-auth-example)
-+ [redux-auth](https://github.com/lynndylanhurley/redux-auth)
+- [Authentication with JWT by Auth0](https://auth0.com/blog/2016/01/04/secure-your-react-and-redux-app-with-jwt-authentication/)
+- [Tips to Handle Authentication in Redux](https://medium.com/@MattiaManzati/tips-to-handle-authentication-in-redux-2-introducing-redux-saga-130d6872fbe7)
+- [react-redux-jwt-auth-example](https://github.com/joshgeller/react-redux-jwt-auth-example)
+- [redux-auth](https://github.com/lynndylanhurley/redux-auth)
