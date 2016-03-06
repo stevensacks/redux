@@ -273,8 +273,6 @@ The `connect` function takes two primary arguments, both optional.  The first, `
 
 If you do not provide your own `mapDispatchToProps` function when calling `connect`, React-Redux will provide a default version, which simply returns the `dispatch` function as a prop.  That means that if you _do_ provide your own function, `dispatch` is _not_ automatically provided.  If you still want it available as a prop, you need to explicitly return it yourself in your `mapDispatchToProps` implementation.
 
-### Should I only connect my top component, or can I connect multiple components in my tree?
-
 
 #### Further information
 **Documentation**
@@ -286,6 +284,29 @@ If you do not provide your own `mapDispatchToProps` function when calling `conne
 - [React-Redux #145 - consider always passing down dispatch regardless of what mapDispatchToProps does](https://github.com/reactjs/react-redux/issues/145)
 - [React-Redux #255 - this.props.dispatch is undefined if using mapDispatchToProps](https://github.com/reactjs/react-redux/issues/255)
 - [SO - http://stackoverflow.com/questions/34458261/how-to-get-simple-dispatch-from-this-props-using-connect-w-redux/34458710](How to get simple dispatch from this.props using connect w/ Redux?)
+
+
+### Should I only connect my top component, or can I connect multiple components in my tree?
+
+Early Redux documentation advised that you should only have a few connected components, near the top of your component tree.  However, time and experience has shown that that generally requires a few components to know too much about the data requirements of all their descendants, and forces them to pass down a confusing number of props.  
+
+The current suggested best practice is to categorize your components as "presentational" or "container", and extract a connected container component wherever it makes sense:
+
+> Emphasizing "one container component at the top" in Redux examples was a mistake. Don't take this as a maxim.  Try to keep your presentation components separate. Create container components by connecting them when it's convenient.  Whenever you feel like you're duplicating code in parent components to provide data for same kinds of children, time to extract a container.  Generally as soon as you feel a parent knows too much about "personal" data / actions of its children, time to extract a container.
+
+In general, try to find a balance between understandable data flow and areas of responsibility with your components.
+
+#### Further information
+**Documentation**:
+- [Basics: Usage with React](basics/UsageWithReact.md)
+
+
+**Discussions**
+- [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
+- [Twitter - emphasizing "one container" was a mistake](https://twitter.com/dan_abramov/status/668585589609005056)
+- [#419 - Recommended usage of connect](https://github.com/reactjs/redux/issues/419)
+- [#756 - container vs component?](https://github.com/reactjs/redux/issues/756)
+- [SO - can a dumb component use a Redux container?](http://stackoverflow.com/questions/34992247/can-a-dumb-component-use-render-redux-container-component)
 
 
 ## Community
