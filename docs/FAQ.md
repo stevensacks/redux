@@ -265,6 +265,18 @@ If you actually are concerned about reducer performance, you can use a utility s
 
 ### Do I have to deep-copy my state in a reducer? Isn't copying my state going to be slow?
 
+Immutably updating state generally means making shallow copies, not deep copies.  Shallow copies should be faster than deep copies, because fewer objects and fields have to be copied, and it effectively comes down to moving some pointers around.
+
+However, you _do_ need to create a copied and updated object for each level of nesting that is affected.  Although that shouldn't be particularly expensive, it's another good reason why you should keep your state normalized and shallow if possible.
+
+
+#### Further information
+**Discussions**:
+- [#454 - Handling big states in reducer](https://github.com/reactjs/redux/issues/454)
+- [#758 - Why can't state be mutated?](https://github.com/reactjs/redux/issues/758)
+- [#994 - How to cut the boilerplate when updating nested entities?](https://github.com/reactjs/redux/issues/994)
+- [Cloning Objects in Javascript](http://www.zsoltnagy.eu/cloning-objects-in-javascript/)
+
 ### How can I reduce the number of store update events?
 
 Redux notifies subscribers after each successfully dispatched action (ie, the action reached the store and was handled by reducers).  In some cases, it may be useful to cut down on the number of times subscribers are called, particularly if an action creator dispatches multiple distinct actions in a row.  There are a number of community addons that provide batching of subscription notifications after multiple actions are dispatched, such as [redux-batched-updates](https://github.com/acdlite/redux-batched-updates),  [redux-batched-subscribe](https://github.com/tappleby/redux-batched-subscribe), or [redux-batched-actions](https://github.com/tshelburne/redux-batched-actions).
