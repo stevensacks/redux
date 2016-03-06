@@ -239,6 +239,9 @@ Redux notifies subscribers after each successfully dispatched action (ie, the ac
 #### Further information
 **Discussions**:
 - [#125 - Strategy for avoiding cascading renders](https://github.com/reactjs/redux/issues/125)
+- [#542 - Idea: batching actions](https://github.com/reactjs/redux/issues/542)
+- [#911 - Batching actions](https://github.com/reactjs/redux/issues/911)
+- [React-Redux #263 - Huge performance issue when dispatching hundreds of actions](https://github.com/reactjs/react-redux/issues/263)
 
 ### Will having "one state tree" cause memory problems?
 
@@ -295,6 +298,7 @@ For non-connected components, you may want to check what props are being passed 
 #### Further information
 
 **Discussions**:
+- [SO - Can a React-Redux app scale as well as Backbone?](http://stackoverflow.com/questions/34782249/can-a-react-redux-app-really-scale-as-well-as-say-backbone-even-with-reselect)
 - [React.js pure render performance anti-pattern](https://medium.com/@esamatti/react-js-pure-render-performance-anti-pattern-fb88c101332f)
 
 
