@@ -248,6 +248,19 @@ As for architecture, anecdotal evidence is that Redux works well for varying pro
 
 ### Won't calling "all my reducers" for each action be slow?
 
+It's important to note that a Redux store really only has a single reducer function.  The store passes the current state and dispatched action to that one reducer function, and lets the reducer handle things appropriately.
+
+Obviously, trying to handle every possible action in a single function does not scale well, simply in terms of function size and readability, so it makes sense to split the actual work into separate functions that can be called by the top-level reducer.  In particular, the common suggested pattern is to have a separate sub-reducer function that is responsible for managing updates to a particular slice of state at a specific key, which is made simpler by using the provided `combineReducers` utility.  It's also highly suggested to keep your store state as flat and as normalized as possible.  Ultimately, though, you are in charge of organizing your reducer logic any way you want.
+
+However, even if you happen to have many different independent sub-reducers, and even have deeply nested state, reducer speed is unlikely to be a problem.  Javascript engines are capable of running a very large number of function calls per second, and most of your sub-reducers are probably just using a switch statement and returning the existing state by default in response to most actions.
+
+If you actually are concerned about reducer performance, you can use a utility such as [redux-ignore](https://github.com/omnidan/redux-ignore) or [reduxr-scoped-reducer](https://github.com/chrisdavies/reduxr-scoped-reducer) to ensure that only certain reducers listen to specific actions.  You can also use [redux-log-slow-reducers](https://github.com/michaelcontento/redux-log-slow-reducers) to do some performance benchmarking.
+
+#### Further information
+**Discussions**:
+- [#912 - Proposal: action filter utility](https://github.com/reactjs/redux/issues/912)
+- [#1303 - Redux Performance with Large Store and frequent updates](https://github.com/reactjs/redux/issues/1303)
+- [SO - How does Redux deal with deeply nested models?](http://stackoverflow.com/questions/34494866/how-does-redux-deals-with-deeply-nested-models/34495397)
 
 
 ### Do I have to deep-copy my state in a reducer? Isn't copying my state going to be slow?
