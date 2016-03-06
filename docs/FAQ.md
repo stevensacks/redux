@@ -227,8 +227,28 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 
 ## Performance
 
+### How well does Redux "scale" in terms of performance and architecture?
+
+While there's no single definitive answer to this, most of the time this should not be a concern in either case. 
+
+The work done by Redux generally falls into a few areas: processing actions in middleware and reducers (including object duplication for immutable updates), notifying subscribers after actions are dispatched, and updating UI components based on state changes.  While it's certainly _possible_ for each of these to become a performance concern in sufficiently complex situations, there's nothing inherently slow or inefficient about how Redux is implemented.  In fact, React-Redux in particular is heavily optimized to cut down on unnecessary re-renders.  
+
+As for architecture, anecdotal evidence is that Redux works well for varying project and team sizes.  Redux is currently used by hundreds of companies and thousands of developers, with several hundred thousand monthly installations from NPM.  One developer reported:
+
+> for scale, we have ~500 action types, ~400 reducer cases, ~150 components, 5 middlewares, ~200 actions, ~2300 tests
+
+#### Further information
+**Discussions**:
+- [#310 - Who uses Redux?](https://github.com/reactjs/redux/issues/310)
+- [Reddit - What's the best place to keep the initial state?](https://www.reddit.com/r/reactjs/comments/47m9h5/whats_the_best_place_to_keep_the_initial_state/)
+- [Reddit - Help designing Redux state for a single page app](https://www.reddit.com/r/reactjs/comments/48k852/help_designing_redux_state_for_a_single_page/)
+- [Reddit - Redux performance issues with a large state object?](https://www.reddit.com/r/reactjs/comments/41wdqn/redux_performance_issues_with_a_large_state_object/)
+- [Twitter - Redux scaling](https://twitter.com/NickPresta/status/684058236828266496)
+
 
 ### Won't calling "all my reducers" for each action be slow?
+
+
 
 ### Do I have to deep-copy my state in a reducer? Isn't copying my state going to be slow?
 
@@ -245,7 +265,7 @@ Redux notifies subscribers after each successfully dispatched action (ie, the ac
 
 ### Will having "one state tree" cause memory problems?  Will dispatching many actions take up memory?  
 
-This should generally not be a concern.  First, in terms of raw memory usage, Redux is no different than any other Javascript library.  The only difference is that all the various object references are nested together into one tree, instead of maybe saved in various independent model instances such as in Backbone.  Second, a typical Redux app would probably have somewhat _less_ memory usage than an equivalent Backbone app, because Redux encourages use of plain Javascript objects and arrays rather than creating instances of Models and Collections.  Finally, Redux only holds on to a single state tree reference at a time.  Objects that are no longer referenced in that tree will be garbage collected, as standard.
+First, in terms of raw memory usage, Redux is no different than any other Javascript library.  The only difference is that all the various object references are nested together into one tree, instead of maybe saved in various independent model instances such as in Backbone.  Second, a typical Redux app would probably have somewhat _less_ memory usage than an equivalent Backbone app, because Redux encourages use of plain Javascript objects and arrays rather than creating instances of Models and Collections.  Finally, Redux only holds on to a single state tree reference at a time.  Objects that are no longer referenced in that tree will be garbage collected, as standard.
 
 Redux does not store a history of actions itself.  However, the Redux DevTools do store actions so they can be replayed, but those are generally only enabled during development, and not used in production.
 
