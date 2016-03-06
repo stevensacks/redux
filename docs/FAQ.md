@@ -236,8 +236,22 @@ In general, ask if these actions are related but independent, or might actually 
 
 ### What should my file structure look like? How should I group my action creators and reducers in my project? Where should my selectors go?
 
-- http://jaysoo.ca/2016/02/28/organizing-redux-application/
-- http://stackoverflow.com/questions/32634320/how-to-structure-redux-components-containers/32921576
+Since Redux is just a data store library, it has no direct opinion on how your project should be structured.  However, there are a few common patterns that most Redux developers tend to use:
+
+- Rails-style: separate folders for "actions", "constants", "reducers", "containers", and "components"
+- Domain-style: separate folders per feature or domain, possibly with sub-folders per file type
+- "Ducks": similar to domain style, but explicitly tying together actions and reducers, often by defining them in the same file
+
+It's generally suggested that selectors should be defined alongside reducers and exported, then re-used elsewhere (such as in `mapStateToProps` functions or in async action creators) to hide the actual shape of the store.
+
+#### Further information
+**Discussions**:
+- [#839 - Emphasize defining selectors alongside reducers](https://github.com/reactjs/redux/issues/839)
+- [#943 - Reducer querying](https://github.com/reactjs/redux/issues/943)
+- [React-Boilerplate #27 - Application Structure](https://github.com/mxstbr/react-boilerplate/issues/27)
+- [SO - How to structure Redux components/containers](http://stackoverflow.com/questions/32634320/how-to-structure-redux-components-containers/32921576)
+- [Redux Best Practices](https://medium.com/lexical-labs-engineering/redux-best-practices-64d59775802e)
+- [Rules For Structuring (Redux) Applications ](http://jaysoo.ca/2016/02/28/organizing-redux-application/)
 
 ### How should I split my logic between reducers and action creators?
 
