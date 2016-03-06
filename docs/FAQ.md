@@ -269,12 +269,15 @@ Immutably updating state generally means making shallow copies, not deep copies.
 
 However, you _do_ need to create a copied and updated object for each level of nesting that is affected.  Although that shouldn't be particularly expensive, it's another good reason why you should keep your state normalized and shallow if possible.
 
+> Common Redux misconception: you need to deeply clone the state. Reality: if something inside doesn't change, keep its reference the same!
+
 
 #### Further information
 **Discussions**:
 - [#454 - Handling big states in reducer](https://github.com/reactjs/redux/issues/454)
 - [#758 - Why can't state be mutated?](https://github.com/reactjs/redux/issues/758)
 - [#994 - How to cut the boilerplate when updating nested entities?](https://github.com/reactjs/redux/issues/994)
+- [Twitter - common misconception - deep cloning](https://twitter.com/dan_abramov/status/688087202312491008)
 - [Cloning Objects in Javascript](http://www.zsoltnagy.eu/cloning-objects-in-javascript/)
 
 ### How can I reduce the number of store update events?
