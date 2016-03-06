@@ -243,7 +243,22 @@ Redux notifies subscribers after each successfully dispatched action (ie, the ac
 - [#911 - Batching actions](https://github.com/reactjs/redux/issues/911)
 - [React-Redux #263 - Huge performance issue when dispatching hundreds of actions](https://github.com/reactjs/react-redux/issues/263)
 
-### Will having "one state tree" cause memory problems?
+### Will having "one state tree" cause memory problems?  Will dispatching many actions take up memory?  
+
+This should generally not be a concern.  First, in terms of raw memory usage, Redux is no different than any other Javascript library.  The only difference is that all the various object references are nested together into one tree, instead of maybe saved in various independent model instances such as in Backbone.  Second, a typical Redux app would probably have somewhat _less_ memory usage than an equivalent Backbone app, because Redux encourages use of plain Javascript objects and arrays rather than creating instances of Models and Collections.  Finally, Redux only holds on to a single state tree reference at a time.  Objects that are no longer referenced in that tree will be garbage collected, as standard.
+
+Redux does not store a history of actions itself.  However, the Redux DevTools do store actions so they can be replayed, but those are generally only enabled during development, and not used in production.
+
+#### Further information
+**Documentation**:
+- [Docs: Async Actions](advanced/AsyncActions.md])
+
+
+**Discussions**:
+- [SO - Is there any way to "commit" the state in Redux to free memory?](http://stackoverflow.com/questions/35627553/is-there-any-way-to-commit-the-state-in-redux-to-free-memory/35634004)
+- [Reddit - What's the best place to keep initial state?](https://www.reddit.com/r/reactjs/comments/47m9h5/whats_the_best_place_to_keep_the_initial_state/)
+
+
 
 
 ## React-Redux
