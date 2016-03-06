@@ -206,6 +206,7 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 - http://stackoverflow.com/questions/33011729/how-to-unit-test-async-redux-actions-to-mock-ajax-response/33053465
 - http://stackoverflow.com/questions/35262692/how-to-fire-ajax-calls-in-response-to-the-state-changes-with-redux/35675447
 - https://www.reddit.com/r/reactjs/comments/469iyc/help_performing_async_api_calls_with_reduxpromise/
+- http://stackoverflow.com/questions/34570758/why-do-we-need-middleware-for-async-flow-in-redux
 
 ### Should I dispatch multiple actions in a row from one action creator?
 - http://stackoverflow.com/questions/33637740/should-i-use-one-or-several-action-types-to-represent-this-async-action/33816695
@@ -258,6 +259,8 @@ Note that "updating data immutably" does _not_ mean that you must use the Immuta
 - [Recipes: Using the Object Spread Operator](recipes/UsingObjectSpreadOperator.md)
 
 **Discussions**:
+- [#1262 - Immutable data + bad performance](https://github.com/reactjs/redux/issues/1262)
+- [React-Redux #235 - Predicate function for updating component](https://github.com/reactjs/react-redux/issues/235)
 - [React-Redux #291 - Should mapStateToProps be called every time an action is dispatched?](https://github.com/reactjs/react-redux/issues/291)
 - [SO - Cleaner/shorter way to update nested state in Redux?](http://stackoverflow.com/questions/35592078/cleaner-shorter-way-to-update-nested-state-in-redux)
 - [Gist - state mutations](https://gist.github.com/amcdnl/7d93c0c67a9a44fe5761#gistcomment-1706579)
@@ -331,6 +334,7 @@ In general, try to find a balance between understandable data flow and areas of 
 - [Twitter - emphasizing "one container" was a mistake](https://twitter.com/dan_abramov/status/668585589609005056)
 - [#419 - Recommended usage of connect](https://github.com/reactjs/redux/issues/419)
 - [#756 - container vs component?](https://github.com/reactjs/redux/issues/756)
+- [#1176 - Redux+React with only stateless components](https://github.com/reactjs/redux/issues/1176)
 - [SO - can a dumb component use a Redux container?](http://stackoverflow.com/questions/34992247/can-a-dumb-component-use-render-redux-container-component)
 
 
