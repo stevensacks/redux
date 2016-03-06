@@ -304,6 +304,17 @@ For non-connected components, you may want to check what props are being passed 
 
 ### How can I speed up my mapStateToProps?
 
+While React-Redux does work to minimize the number of times that your `mapStateToProps` function is called, it's still a good idea to ensure that your `mapStateToProps` runs quickly and also minimizes the amount of work it does.  The common recommended approach is to create memoized "selector" functions using the [Reselect](https://github.com/reactjs/reselect) library.  These selectors can be combined and composed together, and selectors later in a pipeline will only run if their inputs have changed.  This means you can create selectors that do things like filtering or sorting, and ensure that the real work only happens if needed.
+
+#### Further information
+**Documentation**:
+- [Recipes: Computed Derived Data](recipes/ComputingDerivedData.md)
+
+**Discussions**:
+- [#815 - Working with Data Structures](https://github.com/reactjs/redux/issues/815)
+- [Reselect #47 - Memoizing Hierarchical Selectors](https://github.com/reactjs/reselect/issues/47)
+
+
 ### Why don't I have `this.props.dispatch` available in my connected component?
 
 The `connect` function takes two primary arguments, both optional.  The first, `mapStateToProps`, is a function you provide to pull data from the store when it changes, and pass those values as props to your component.  The second, `mapDispatchToProps`, is a function you provide to make use of the store's `dispatch` function, usually by creating pre-bound versions of action creators that will automatically dispatch their actions as soon as they are called.
