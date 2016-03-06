@@ -193,10 +193,18 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 
 ### Is there always a 1-1 mapping between reducers and actions?
 
+The actual suggested pattern is to have independent sub-reducer functions that are each responsible for updates to a specific slice of state - the "reducer composition" pattern.  A given action could be handled by all, some, or none of them.  Some users do choose to bind them more tightly together, such as the "ducks" file structure, but there is definitely not a 1-1 mapping by default.
 
-- http://stackoverflow.com/questions/35406707/do-events-and-actions-have-a-11-relationship-in-redux
-- http://stackoverflow.com/questions/35493352/can-i-dispatch-multiple-actions-without-redux-thunk-middleware/35642783
-- https://github.com/reduxible/reduxible/issues/8
+#### Further information
+**Documentation**:
+- [Basics: Reducers](basics/Reducers.md)
+
+
+**Discussions**:
+- [Twitter - most common Redux misconception](https://twitter.com/dan_abramov/status/682923564006248448)
+- [#1167 - Reducer without switch](https://github.com/reactjs/redux/issues/1167)
+- [Reduxible #8 - Reducers and action creators aren't a one-to-one mapping](https://github.com/reduxible/reduxible/issues/8)
+- [SO - Can I dispatch multiple actions without Redux Thunk middleware?](http://stackoverflow.com/questions/35493352/can-i-dispatch-multiple-actions-without-redux-thunk-middleware/35642783)
 
 ### How can I represent "side effects" such as AJAX calls?
 
