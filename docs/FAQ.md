@@ -234,6 +234,12 @@ Encapsulating and centralizing commonly used pieces of code is a key concept in 
 
 ### How can I reduce the number of store update events?
 
+Redux notifies subscribers after each successfully dispatched action (ie, the action reached the store and was handled by reducers).  In some cases, it may be useful to cut down on the number of times subscribers are called, particularly if an action creator dispatches multiple distinct actions in a row.  There are a number of community addons that provide batching of subscription notifications after multiple actions are dispatched, such as [redux-batched-updates](https://github.com/acdlite/redux-batched-updates),  [redux-batched-subscribe](https://github.com/tappleby/redux-batched-subscribe), or [redux-batched-actions](https://github.com/tshelburne/redux-batched-actions).
+
+#### Further information
+**Discussions**:
+- [#125 - Strategy for avoiding cascading renders](https://github.com/reactjs/redux/issues/125)
+
 ### Will having "one state tree" cause memory problems?
 
 
@@ -284,12 +290,11 @@ The extra re-renders could be resolved by saving the array of objects into the s
 
 For non-connected components, you may want to check what props are being passed in.  A common issue is having a parent component re-bind a callback inside its render function, like `<Child onClick={this.handleClick.bind(this)} />`.  That creates a new function reference every time the parent re-renders.  It's generally good practice to only bind callbacks once, in the parent component's constructor.
 
-Finally, there are also community addons that provide batching of subscription notifications after multiple actions are dispatched, such as [redux-batched-updates](https://github.com/acdlite/redux-batched-updates) and [redux-batched-subscribe](https://github.com/tappleby/redux-batched-subscribe)
+
 
 #### Further information
 
 **Discussions**:
-- [#125 - Strategy for avoiding cascading renders](https://github.com/reactjs/redux/issues/125)
 - [React.js pure render performance anti-pattern](https://medium.com/@esamatti/react-js-pure-render-performance-anti-pattern-fb88c101332f)
 
 
