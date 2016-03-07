@@ -22,6 +22,9 @@ In general, use Redux when you have reasonable amounts of data changing over tim
 - [React How-To](https://github.com/petehunt/react-howto)
 - [Twitter - Don't use Redux until...](https://twitter.com/dan_abramov/status/699241546248536064)
 - [The Case for Flux](https://medium.com/swlh/the-case-for-flux-379b7d1982c6)
+- [SO - Why use Redux over Facebook Flux?](http://stackoverflow.com/questions/32461229/why-use-redux-over-facebook-flux)
+- [SO - Why should I use Redux in this example?](http://stackoverflow.com/questions/35675339/why-should-i-use-redux-in-this-example)
+- [SO - What could be the downsides of using Redux instead of Flux?](http://stackoverflow.com/questions/32021763/what-could-be-the-downsides-of-using-redux-instead-of-flux)
 
 ### Can Redux only be used with React?  
 
