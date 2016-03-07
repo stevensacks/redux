@@ -206,15 +206,41 @@ The actual suggested pattern is to have independent sub-reducer functions that a
 - [Reduxible #8 - Reducers and action creators aren't a one-to-one mapping](https://github.com/reduxible/reduxible/issues/8)
 - [SO - Can I dispatch multiple actions without Redux Thunk middleware?](http://stackoverflow.com/questions/35493352/can-i-dispatch-multiple-actions-without-redux-thunk-middleware/35642783)
 
-### How can I represent "side effects" such as AJAX calls?
+### How can I represent "side effects" such as AJAX calls?  Why do we need things like "action creators", "thunks", and "middleware" to do async behavior?
 
-- http://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559
-- http://stackoverflow.com/questions/32982237/where-should-i-put-synchronous-side-effects-linked-to-actions-in-redux/33036344
-- http://stackoverflow.com/questions/32925837/how-to-handle-complex-side-effects-in-redux/33036594
-- http://stackoverflow.com/questions/33011729/how-to-unit-test-async-redux-actions-to-mock-ajax-response/33053465
-- http://stackoverflow.com/questions/35262692/how-to-fire-ajax-calls-in-response-to-the-state-changes-with-redux/35675447
-- https://www.reddit.com/r/reactjs/comments/469iyc/help_performing_async_api_calls_with_reduxpromise/
-- http://stackoverflow.com/questions/34570758/why-do-we-need-middleware-for-async-flow-in-redux
+This is a long and complex topic, with a wide variety of opinions on how code should be organized and what approaches should be used.
+
+Any meaningful web app needs to execute complex logic, usually including asynchronous work such as making AJAX requests.  That code is no longer purely a function of its inputs, and the interactions with the outside world are known as ["side effects"](https://en.wikipedia.org/wiki/Side_effect_%28computer_science%29) 
+
+Redux is inspired by functional programming, and out of the box, has no place for side effects to be executed.  In particular, reducer functions MUST always be pure functions of `(state, action) -> newState`.  However, Redux's middleware makes it possible to intercept dispatched actions and add additional complex behavior around them, including side effects.
+
+In general, Redux suggests that code with side effects should be part of the action creation process.  While that logic _can_ be performed inside of a UI component, it generally makes sense to extract that logic into a reusable function so that the same logic can be called from multiple places - in other words, an action creator function.
+
+The simplest and most common way to do this is adding the [redux-thunk](https://github.com/gaearon/redux-thunk) middleware, allowing you to write action creators with more complex / async logic.  One  widely-used method is [redux-saga](https://github.com/yelouafi/redux-saga), which lets you write more synchronous-looking code using generators, and can act like "background threads" or "daemons" in a Redux app.  Another approach is [redux-loop](https://github.com/raisemarketplace/redux-loop), which inverts the process by allowing your reducers to declare side effects in response to state changes and have them executed separately. Beyond that, there are _many_ other community-developed libraries and ideas, each with their own take on how side effects should be managed.
+
+
+#### Further information
+**Documentation**:
+- [Advanced: Async Actions](advanced/AsyncActions.md)
+- [Advanced: Async Flow](advanced/AsyncFlow.md)
+- [Advanced: Middleware](advanced/Middleware.md)
+
+**Discussions**:
+- [#291 - Trying to put API calls in the right place](https://github.com/reactjs/redux/issues/291)
+- [#455 - Modeling side effects](https://github.com/reactjs/redux/issues/455)
+- [#533 - Simpler introduction to async action creators](https://github.com/reactjs/redux/issues/533)
+- [#569 - Proposal: API for explicit side effects](https://github.com/reactjs/redux/pull/569)
+- [#1139 - An alternative side effect model based on generators and sagas](https://github.com/reactjs/redux/issues/1139)
+- [SO - Why do we need middleware for async flow in Redux?](http://stackoverflow.com/questions/34570758/why-do-we-need-middleware-for-async-flow-in-redux)
+- [SO - How to dispatch a Redux action with a timeout?](http://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559)
+- [SO - Where should I put synchronous side effects linked to actions in redux?](http://stackoverflow.com/questions/32982237/where-should-i-put-synchronous-side-effects-linked-to-actions-in-redux/33036344)
+- [SO - How to handle complex side-effects in Redux?](http://stackoverflow.com/questions/32925837/how-to-handle-complex-side-effects-in-redux/33036594)
+- [SO - How to unit test async Redux actions to mock ajax response](http://stackoverflow.com/questions/33011729/how-to-unit-test-async-redux-actions-to-mock-ajax-response/33053465)
+- [SO - How to fire AJAX calls in response to the state changes with Redux?](http://stackoverflow.com/questions/35262692/how-to-fire-ajax-calls-in-response-to-the-state-changes-with-redux/35675447)
+- [Reddit - Help performing Async API calls with Redux-Promise Middleware.](https://www.reddit.com/r/reactjs/comments/469iyc/help_performing_async_api_calls_with_reduxpromise/)
+- [Twitter - possible comparison between sagas, loops, and other approaches](https://twitter.com/dan_abramov/status/689639582120415232)
+- [Redux Side-Effects and You](https://medium.com/@fward/redux-side-effects-and-you-66f2e0842fc3)
+- [Pure functionality and side effects in Redux](http://blog.hivejs.org/building-the-ui-2/)
 
 ### Should I dispatch multiple actions in a row from one action creator?
 
