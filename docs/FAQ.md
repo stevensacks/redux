@@ -515,12 +515,22 @@ In general, try to find a balance between understandable data flow and areas of 
 - [SO - can a dumb component use a Redux container?](http://stackoverflow.com/questions/34992247/can-a-dumb-component-use-render-redux-container-component)
 
 
-## Community
+
+## Miscellaneous
 
 ### Are there any larger, "real" Redux projects?
 
+The Redux "examples" folder has several sample projects of varying complexity, including a "real-world" example.  While many companies are using Redux, most of their applications are proprietary and not available.  A large number of Redux-related projects can be found on Github, such as [Sound-Redux](https://github.com/andrewngu/sound-redux).
 
-## Miscellaneous
+#### Further information
+**Documentation**:
+- [Introduction: Examples](introduction/Examples.md)
+
+
+**Discussions**:
+- [Reddit - Large open source react/redux projects?](https://www.reddit.com/r/reactjs/comments/496db2/large_open_source_reactredux_projects/)
+- [HN - Is there any huge web application built using Redux?](https://news.ycombinator.com/item?id=10710240)
+
 
 ### How can I implement authentication in Redux?
 
