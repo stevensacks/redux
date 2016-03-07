@@ -253,9 +253,21 @@ It's generally suggested that selectors should be defined alongside reducers and
 - [Redux Best Practices](https://medium.com/lexical-labs-engineering/redux-best-practices-64d59775802e)
 - [Rules For Structuring (Redux) Applications ](http://jaysoo.ca/2016/02/28/organizing-redux-application/)
 
-### How should I split my logic between reducers and action creators?
+### How should I split my logic between reducers and action creators?  Where should my "business logic" go?
 
-- https://github.com/reactjs/redux/issues/1171 
+There's no single clear answer to exactly what pieces of logic should go in a reducer vs an action creator.  Some developers prefer to have "fat" action creators, with "thin" reducers that simply take the data in an action and blindly merge it into the corresponding state.  Others try to emphasize keeping actions as small as possible, and minimize usage of `getState` in an action creator.
+
+This comment sums up the dichotomy nicely:
+
+> Now, the problem is what to put in the action creator and what in the reducer, the choice between fat and thin action objects. If you put all the logic in the action creator, you end up with fat action objects that basically declare the updates to the state. Reducers become pure, dumb, add-this, remove that, update these functions. They will be easy to compose. But not much of your business logic will be there.
+> If you put more logic in the reducer, you end up with nice, thin action objects, most of your data logic in one place, but your reducers are harder to compose since you might need info from other branches. You end up with large reducers or reducers that take additional arguments from higher up in the state.
+
+
+#### Further information
+**Discussions**:
+- [#1165 - Where to put business logic / validation?](https://github.com/reactjs/redux/issues/1165)
+- [#1171 - Recommendations for best practices regarding action-creators, reducers, and selectors](https://github.com/reactjs/redux/issues/1171 )
+- [SO - Accessing Redux state in an action creator??](http://stackoverflow.com/questions/35667249/accessing-redux-state-in-an-action-creator/35674575)
 
 
 ## Performance
