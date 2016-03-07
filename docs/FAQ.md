@@ -4,6 +4,25 @@
 
 ### When should I use Redux?
 
+Pete Hunt, creator of React, says:
+
+> You'll know when you need Flux. If you aren't sure if you need it, you don't need it.
+
+Similarly, Dan Abramov, creator of Redux, says:
+
+> I would like to amend this: don't use Redux until you have problems with vanilla React. 
+
+In general, use Redux when you have reasonable amounts of data changing over time, you need a single source of truth, and you find that approaches like keeping everything in a top-level React component's state are no longer sufficient.
+
+#### Further information
+**Documentation**:
+- [Introduction: Motivation](introduction/Motivation.md)
+
+**Discussions**:
+- [React How-To](https://github.com/petehunt/react-howto)
+- [Twitter - Don't use Redux until...](https://twitter.com/dan_abramov/status/699241546248536064)
+- [The Case for Flux](https://medium.com/swlh/the-case-for-flux-379b7d1982c6)
+
 ### Can Redux only be used with React?  
 
 Redux can be used as a data store for any UI layer.  The most common usage is with React, but there are bindings available for Angular, Vue, Mithril, and more.  Redux simply provides a subscription mechanism, which can be used by any other code.
